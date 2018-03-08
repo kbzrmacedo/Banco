@@ -31,16 +31,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.botaoCadastro = new System.Windows.Forms.Button();
-            this.textoNumero = new System.Windows.Forms.TextBox();
             this.textoTitular = new System.Windows.Forms.TextBox();
+            this.textoNumero = new System.Windows.Forms.TextBox();
+            this.botaoCadastro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 27);
+            this.label1.Location = new System.Drawing.Point(18, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 59);
+            this.label2.Location = new System.Drawing.Point(18, 66);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 1;
@@ -71,29 +71,29 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar";
             // 
+            // textoTitular
+            // 
+            this.textoTitular.Location = new System.Drawing.Point(96, 63);
+            this.textoTitular.Name = "textoTitular";
+            this.textoTitular.Size = new System.Drawing.Size(95, 20);
+            this.textoTitular.TabIndex = 2;
+            // 
+            // textoNumero
+            // 
+            this.textoNumero.Location = new System.Drawing.Point(96, 34);
+            this.textoNumero.Name = "textoNumero";
+            this.textoNumero.Size = new System.Drawing.Size(95, 20);
+            this.textoNumero.TabIndex = 1;
+            // 
             // botaoCadastro
             // 
-            this.botaoCadastro.Location = new System.Drawing.Point(54, 108);
+            this.botaoCadastro.Location = new System.Drawing.Point(66, 107);
             this.botaoCadastro.Name = "botaoCadastro";
             this.botaoCadastro.Size = new System.Drawing.Size(75, 23);
             this.botaoCadastro.TabIndex = 0;
             this.botaoCadastro.Text = "Cadastrar";
             this.botaoCadastro.UseVisualStyleBackColor = true;
             this.botaoCadastro.Click += new System.EventHandler(this.botaoCadastro_Click);
-            // 
-            // textoNumero
-            // 
-            this.textoNumero.Location = new System.Drawing.Point(84, 27);
-            this.textoNumero.Name = "textoNumero";
-            this.textoNumero.Size = new System.Drawing.Size(95, 20);
-            this.textoNumero.TabIndex = 1;
-            // 
-            // textoTitular
-            // 
-            this.textoTitular.Location = new System.Drawing.Point(84, 56);
-            this.textoTitular.Name = "textoTitular";
-            this.textoTitular.Size = new System.Drawing.Size(95, 20);
-            this.textoTitular.TabIndex = 2;
             // 
             // FormCadastroConta
             // 

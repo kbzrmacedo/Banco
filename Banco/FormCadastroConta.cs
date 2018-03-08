@@ -12,8 +12,9 @@ namespace Banco
 {
     public partial class FormCadastroConta : Form
     {
-        private Form1 formPrincipal;
-        public FormCadastroConta(Form1 formPrincipal)
+        private FormularioConta formPrincipal;
+
+        public FormCadastroConta(FormularioConta formPrincipal)
         {
             this.formPrincipal = formPrincipal;
             InitializeComponent();
@@ -35,6 +36,7 @@ namespace Banco
             novaConta.Titular = new Cliente(textoTitular.Text);
             novaConta.Numero = Convert.ToInt32(textoNumero.Text);
 
+            //chama o metodo presente no Formulario 1
             this.formPrincipal.AdicionaConta(novaConta);
         }
     }

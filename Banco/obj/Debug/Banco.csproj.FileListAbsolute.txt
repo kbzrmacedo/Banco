@@ -9,3 +9,13 @@ C:\Users\Mathe\source\repos\Banco\Banco\obj\Debug\Banco.csproj.CoreCompileInputs
 C:\Users\Mathe\source\repos\Banco\Banco\obj\Debug\Banco.exe
 C:\Users\Mathe\source\repos\Banco\Banco\obj\Debug\Banco.pdb
 C:\Users\Mathe\source\repos\Banco\Banco\obj\Debug\Banco.FormCadastroConta.resources
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\bin\Debug\Banco.exe.config
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.exe
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.pdb
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\bin\Debug\Banco.exe
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\bin\Debug\Banco.pdb
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.csprojResolveAssemblyReference.cache
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.FormCadastroConta.resources
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.Properties.Resources.resources
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.csproj.GenerateResource.Cache
+C:\Users\re035842\Documents\Visual Studio 2012\Projects\Banco\Banco\obj\Debug\Banco.FormularioConta.resources

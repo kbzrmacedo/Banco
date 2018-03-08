@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace Banco
 {
-    public class ContaPoupanca : Conta
+    public class ContaPoupanca : Conta, ITributavel
     {
 
         public override void Saca(double valor)
         {
-            base.Saca(valor + 0.10); // chama o método da classe base passando como argumento valor + 0.10. 
+            if (valor + 0.10 <= this.Saldo)
+            {
+                this.Saldo -= valor + 0.10;
+            }
+        }
+
+        public override void Deposita(double valor)
+        {
+            this.Saldo += (valor - 0.10);
+        }
+
+        public double CalculaTributo()
+        {
+            return this.Saldo * 0.02;
         }
     }
 }

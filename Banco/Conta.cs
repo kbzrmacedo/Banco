@@ -2,10 +2,10 @@
 
 namespace Banco
 {
-	public class Conta
+	public abstract class Conta
 	{
 		public int Numero { get; set; }
-		public double Saldo { get; private set; }
+		public double Saldo { get; protected set; }
 		public Cliente Titular { get; set; }
 
 		public Conta()
@@ -14,12 +14,12 @@ namespace Banco
 
         public virtual void Deposita(double valor)
         {
-            this.Saldo += valor;
+            
         }
 
         public virtual void Saca(double valor)
         {
-            this.Saldo -= valor;
+           
         }
     }
 }
