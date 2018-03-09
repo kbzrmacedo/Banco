@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Banco.ContaCC;
-using Banco.ContaPP;
-using Banco.Contas;
-using static Banco.ContaPP.ContaPoupanca;
+using Banco.Relatorios.ContaCC;
+using Banco.Relatorios.ContaPP;
+using Banco.Relatorios.Contas;
 
-namespace Banco
+
+namespace Banco.Relatorios
 {
     public partial class FormularioConta : Form
     {
@@ -67,10 +67,11 @@ namespace Banco
         {
             //recuperar a instância da conta selecionada
             Conta selecionada = (Conta)comboContas.SelectedItem;
+            double valor = Convert.ToDouble(textoValor.Text);
 
             try
             {
-                double valor = Convert.ToDouble(textoValor.Text);
+                
                 selecionada.Deposita(valor);
                 textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Depositado");
@@ -104,7 +105,7 @@ namespace Banco
                 textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Sacado com sucesso!!");
             }
-            catch(SaldoInsuficienteException ex) { 
+            catch(Banco.Relatorios.ContaPP.ContaPoupanca.SaldoInsuficienteException ex) { 
                 MessageBox.Show("Operação Invállida!! --- Motivo: Sem Saldo Disponível.");
             }
             catch (ContaCorrente.SaldoInsuficienteeException ex)
@@ -130,8 +131,9 @@ namespace Banco
         {
             this.contas.Add(conta);
             comboContas.Items.Add(conta);
-
-            this.dicionario.Add(conta.Titular.Nome, conta);
+       
+                this.dicionario.Add(conta.Titular.Nome, conta);
+      
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -210,6 +212,12 @@ namespace Banco
  
                 MessageBox.Show("Nenhuma conta encontrada");
             }
+        }
+
+        private void botaoRelatorio_Click(object sender, EventArgs e)
+        {
+            FormRelatorios form = new FormRelatorios(this.contas);
+            form.ShowDialog();
         }
     }
 }

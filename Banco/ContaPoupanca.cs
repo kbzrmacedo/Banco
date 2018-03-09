@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Banco.Contas;
+using Banco.Relatorios.Contas;
 
-namespace Banco.ContaPP
+namespace Banco.Relatorios.ContaPP
 {
     public class ContaPoupanca : Conta, ITributavel
     {

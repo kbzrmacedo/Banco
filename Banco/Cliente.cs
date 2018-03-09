@@ -1,4 +1,4 @@
-﻿namespace Banco
+﻿namespace Banco.Relatorios
 {
 	public class Cliente
 	{

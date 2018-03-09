@@ -1,4 +1,4 @@
-﻿namespace Banco
+﻿namespace Banco.Relatorios
 {
     partial class FormCadastroConta
     {
@@ -66,28 +66,28 @@
             this.groupBox1.Controls.Add(this.botaoCadastro);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 148);
+            this.groupBox1.Size = new System.Drawing.Size(197, 138);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastrar";
             // 
             // textoTitular
             // 
-            this.textoTitular.Location = new System.Drawing.Point(96, 63);
+            this.textoTitular.Location = new System.Drawing.Point(80, 63);
             this.textoTitular.Name = "textoTitular";
             this.textoTitular.Size = new System.Drawing.Size(95, 20);
             this.textoTitular.TabIndex = 2;
             // 
             // textoNumero
             // 
-            this.textoNumero.Location = new System.Drawing.Point(96, 34);
+            this.textoNumero.Location = new System.Drawing.Point(80, 34);
             this.textoNumero.Name = "textoNumero";
             this.textoNumero.Size = new System.Drawing.Size(95, 20);
             this.textoNumero.TabIndex = 1;
             // 
             // botaoCadastro
             // 
-            this.botaoCadastro.Location = new System.Drawing.Point(66, 107);
+            this.botaoCadastro.Location = new System.Drawing.Point(90, 99);
             this.botaoCadastro.Name = "botaoCadastro";
             this.botaoCadastro.Size = new System.Drawing.Size(75, 23);
             this.botaoCadastro.TabIndex = 0;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 172);
+            this.ClientSize = new System.Drawing.Size(221, 162);
             this.Controls.Add(this.groupBox1);
             this.Name = "FormCadastroConta";
             this.Text = "FormCadastroConta";

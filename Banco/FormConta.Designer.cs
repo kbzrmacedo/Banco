@@ -1,4 +1,4 @@
-﻿namespace Banco
+﻿namespace Banco.Relatorios
 {
 	partial class FormularioConta
 	{
@@ -42,11 +42,12 @@
             this.botaoImpostos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.BuscaDeConta = new System.Windows.Forms.GroupBox();
+            this.botaoBusca = new System.Windows.Forms.Button();
+            this.textoBuscaTitular = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.comboContas = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textoBuscaTitular = new System.Windows.Forms.TextBox();
-            this.botaoBusca = new System.Windows.Forms.Button();
+            this.botaoRelatorio = new System.Windows.Forms.Button();
             this.botaoNovaConta.SuspendLayout();
             this.BuscaDeConta.SuspendLayout();
             this.SuspendLayout();
@@ -162,7 +163,7 @@
             // 
             // botaoImpostos
             // 
-            this.botaoImpostos.Location = new System.Drawing.Point(235, 337);
+            this.botaoImpostos.Location = new System.Drawing.Point(131, 337);
             this.botaoImpostos.Name = "botaoImpostos";
             this.botaoImpostos.Size = new System.Drawing.Size(75, 23);
             this.botaoImpostos.TabIndex = 11;
@@ -195,6 +196,33 @@
             this.BuscaDeConta.Text = "Busca De Conta";
             this.BuscaDeConta.Enter += new System.EventHandler(this.BuscaDeConta_Enter);
             // 
+            // botaoBusca
+            // 
+            this.botaoBusca.Location = new System.Drawing.Point(200, 65);
+            this.botaoBusca.Name = "botaoBusca";
+            this.botaoBusca.Size = new System.Drawing.Size(75, 23);
+            this.botaoBusca.TabIndex = 17;
+            this.botaoBusca.Text = "Buscar";
+            this.botaoBusca.UseVisualStyleBackColor = true;
+            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
+            // 
+            // textoBuscaTitular
+            // 
+            this.textoBuscaTitular.Location = new System.Drawing.Point(119, 67);
+            this.textoBuscaTitular.Name = "textoBuscaTitular";
+            this.textoBuscaTitular.Size = new System.Drawing.Size(75, 20);
+            this.textoBuscaTitular.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(18, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Buscar por titular";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // comboContas
             // 
             this.comboContas.FormattingEnabled = true;
@@ -214,38 +242,22 @@
             this.label5.Text = "Escolha a conta";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // label6
+            // botaoRelatorio
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Buscar por titular";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // textoBuscaTitular
-            // 
-            this.textoBuscaTitular.Location = new System.Drawing.Point(119, 67);
-            this.textoBuscaTitular.Name = "textoBuscaTitular";
-            this.textoBuscaTitular.Size = new System.Drawing.Size(75, 20);
-            this.textoBuscaTitular.TabIndex = 16;
-            // 
-            // botaoBusca
-            // 
-            this.botaoBusca.Location = new System.Drawing.Point(200, 65);
-            this.botaoBusca.Name = "botaoBusca";
-            this.botaoBusca.Size = new System.Drawing.Size(75, 23);
-            this.botaoBusca.TabIndex = 17;
-            this.botaoBusca.Text = "Buscar";
-            this.botaoBusca.UseVisualStyleBackColor = true;
-            this.botaoBusca.Click += new System.EventHandler(this.botaoBusca_Click);
+            this.botaoRelatorio.Location = new System.Drawing.Point(232, 337);
+            this.botaoRelatorio.Name = "botaoRelatorio";
+            this.botaoRelatorio.Size = new System.Drawing.Size(75, 23);
+            this.botaoRelatorio.TabIndex = 12;
+            this.botaoRelatorio.Text = "Relatorios";
+            this.botaoRelatorio.UseVisualStyleBackColor = true;
+            this.botaoRelatorio.Click += new System.EventHandler(this.botaoRelatorio_Click);
             // 
             // FormularioConta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 368);
+            this.ClientSize = new System.Drawing.Size(319, 368);
+            this.Controls.Add(this.botaoRelatorio);
             this.Controls.Add(this.botaoImpostos);
             this.Controls.Add(this.botaoNovaConta);
             this.Controls.Add(this.button1);
@@ -282,6 +294,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button botaoBusca;
         private System.Windows.Forms.TextBox textoBuscaTitular;
+        private System.Windows.Forms.Button botaoRelatorio;
     }
 }
 

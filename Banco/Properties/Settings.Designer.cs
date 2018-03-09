@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Banco.Properties {
+namespace Banco.Relatorios.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

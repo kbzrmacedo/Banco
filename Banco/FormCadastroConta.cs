@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Banco.Busca;
-using Banco.ContaCC;
-using Banco.Contas;
+using Banco.Relatorios.Busca;
+using Banco.Relatorios.ContaCC;
+using Banco.Relatorios.Contas;
 
-namespace Banco
+namespace Banco.Relatorios
 {
     public partial class FormCadastroConta : Form
     {

@@ -1,7 +1,7 @@
 ﻿using System;
-using Banco.Contas;
+using Banco.Relatorios.Contas;
 
-namespace Banco.ContaCC
+namespace Banco.Relatorios.ContaCC
 {
     public class ContaCorrente : Conta, ITributavel
     {

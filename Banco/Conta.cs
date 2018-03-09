@@ -1,7 +1,7 @@
 ﻿using System;
-using Banco.ContaCC;
-using Banco.ContaPP;
-namespace Banco.Contas
+using Banco.Relatorios.ContaCC;
+using Banco.Relatorios.ContaPP;
+namespace Banco.Relatorios.Contas
 {
 	public abstract class Conta
 	{
