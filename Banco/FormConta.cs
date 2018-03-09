@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banco.ContaCC;
+using Banco.ContaPP;
+using Banco.Contas;
+using static Banco.ContaPP.ContaPoupanca;
 
 namespace Banco
 {
     public partial class FormularioConta : Form
     {
-        private Conta[] contas;
-        //private Conta conta;
-        // guarda o número de contas que já foram cadastradas
-        private int numeroDeContas;
+        private List<Conta> contas;
+        private Dictionary<string, Conta> dicionario;
+
         public FormularioConta()
         {
             InitializeComponent();
@@ -34,7 +37,8 @@ namespace Banco
         private void Form1_Load(object sender, EventArgs e)
         {
             // criando o array para guardar as contas
-            this.contas = new Conta[10];
+            this.contas = new List<Conta>();
+            this.dicionario = new Dictionary<string, Conta>();
 
             // vamos inicializar algumas instâncias de Conta.
             Conta c1 = new ContaCorrente();
@@ -61,21 +65,27 @@ namespace Banco
 
         private void botaoDeposito_Click(object sender, EventArgs e)
         {
-            //recuperar o índice da conta selecionada
-            int indice = comboContas.SelectedIndex;
+            //recuperar a instância da conta selecionada
+            Conta selecionada = (Conta)comboContas.SelectedItem;
 
-            //ler a posição correta do array
-            Conta selecionada = this.contas[indice];
+            try
+            {
+                double valor = Convert.ToDouble(textoValor.Text);
+                selecionada.Deposita(valor);
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+                MessageBox.Show("Depositado");
 
-            double valor = Convert.ToDouble(textoValor.Text);
-            selecionada.Deposita(valor);
-            textoSaldo.Text = Convert.ToString(selecionada.Saldo);
+            }
+            catch(ArgumentException ex)
+            {
+                MessageBox.Show("Impossível depositar valor negativo!!");
+            }
 
             //string valorDigitado = textoValor.Text;
             //double valorOperacao = Convert.ToDouble(valorDigitado);
             //this.conta.Deposita(valorOperacao);
             //textoSaldo.Text = Convert.ToString(this.conta.Saldo);
-            MessageBox.Show("Depositado");
+            
         }
 
         private void textoValor_TextChanged(object sender, EventArgs e)
@@ -85,25 +95,25 @@ namespace Banco
 
         private void botaoSaque_Click(object sender, EventArgs e)
         {
-            //recuperar o índice da conta selecionada
-            int indice = comboContas.SelectedIndex;
-
-            //ler a posição correta do array
-            Conta selecionada = this.contas[indice];
-
+           // seleciona o objeto e não o index
+            Conta selecionada = (Conta)comboContas.SelectedItem;
             double valor = Convert.ToDouble(textoValor.Text);
-            selecionada.Saca(valor);
-            textoSaldo.Text = Convert.ToString(selecionada.Saldo);
 
-            Conta conta = new ContaPoupanca();
-            if (valor + 0.10 <= conta.Saldo)
-            {
+            try { 
+                selecionada.Saca(valor);
+                textoSaldo.Text = Convert.ToString(selecionada.Saldo);
                 MessageBox.Show("Sacado com sucesso!!");
             }
-            else
+            catch(SaldoInsuficienteException ex) { 
+                MessageBox.Show("Operação Invállida!! --- Motivo: Sem Saldo Disponível.");
+            }
+            catch (ContaCorrente.SaldoInsuficienteeException ex)
             {
-                MessageBox.Show("Operação Invállida!! Motivo: Sem Saldo Disponível.");
-            }       
+                MessageBox.Show("Operação Invállida!! --- Motivo: Sem Saldo Disponível.");
+            }
+            catch (ArgumentException ex){
+                MessageBox.Show("Não é possível sacar um valor negativo");
+            }
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -118,9 +128,10 @@ namespace Banco
 
         public void AdicionaConta(Conta conta)
         {
-            this.contas[this.numeroDeContas] = conta;
-            this.numeroDeContas++;
-            comboContas.Items.Add("Titular: " + conta.Titular.Nome);
+            this.contas.Add(conta);
+            comboContas.Items.Add(conta);
+
+            this.dicionario.Add(conta.Titular.Nome, conta);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -177,5 +188,28 @@ namespace Banco
 
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void botaoBusca_Click(object sender, EventArgs e)
+        {
+            //nome do titular que foi digitado
+            string nomeTitular = textoBuscaTitular.Text;
+
+            try { 
+                //dicionário para fazer a busca.
+                Conta conta = dicionario[nomeTitular];
+                //mostra a conta que foi encontrada
+                textoTitular.Text = conta.Titular.Nome;
+                textoNumero.Text = Convert.ToString(conta.Numero);
+                textoSaldo.Text = Convert.ToString(conta.Saldo);
+            }
+            catch(Exception ex) { 
+ 
+                MessageBox.Show("Nenhuma conta encontrada");
+            }
+        }
     }
 }

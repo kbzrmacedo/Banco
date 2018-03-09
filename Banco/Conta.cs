@@ -1,6 +1,7 @@
 ﻿using System;
-
-namespace Banco
+using Banco.ContaCC;
+using Banco.ContaPP;
+namespace Banco.Contas
 {
 	public abstract class Conta
 	{
@@ -20,6 +21,11 @@ namespace Banco
         public virtual void Saca(double valor)
         {
            
+        }
+
+        public override string ToString()
+        {
+            return "titular: " + this.Titular.Nome;
         }
     }
 }

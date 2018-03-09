@@ -1,4 +1,7 @@
-﻿namespace Banco
+﻿using System;
+using Banco.Contas;
+
+namespace Banco.ContaCC
 {
     public class ContaCorrente : Conta, ITributavel
     {
@@ -12,18 +15,35 @@
         {
         return ContaCorrente.totalDeContas + 1;
         }
-
+        public class SaldoInsuficienteeException : Exception
+        {
+        }
         public override void Saca(double valor)
         {
-            if (valor + 0.10 <= this.Saldo)
+            if (valor < 0.0)
             {
-                this.Saldo -= valor + 0.05;
+                throw new ArgumentException();
+            }
+            if (valor + 0.10 > this.Saldo)
+            {
+                throw new SaldoInsuficienteeException();
+            }
+            else
+            {
+                this.Saldo -= valor + 0.10;
             }
         }
 
         public override void Deposita(double valor)
         {
-            this.Saldo += (valor - 0.10);
+            if (valor < 0.0)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                this.Saldo += (valor - 0.10);
+            }
         }
 
         public double CalculaTributo()

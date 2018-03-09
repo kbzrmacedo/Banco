@@ -7,17 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Banco.Busca;
+using Banco.ContaCC;
+using Banco.Contas;
 
 namespace Banco
 {
     public partial class FormCadastroConta : Form
     {
+        private ICollection<string> devedores;
         private FormularioConta formPrincipal;
 
         public FormCadastroConta(FormularioConta formPrincipal)
         {
             this.formPrincipal = formPrincipal;
             InitializeComponent();
+
+            GeradorDeDevedores gerador = new GeradorDeDevedores();
+            this.devedores = gerador.GeraList();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -32,12 +39,22 @@ namespace Banco
 
         private void botaoCadastro_Click(object sender, EventArgs e)
         {
-            Conta novaConta = new ContaCorrente();
-            novaConta.Titular = new Cliente(textoTitular.Text);
-            novaConta.Numero = Convert.ToInt32(textoNumero.Text);
+            string titular = textoTitular.Text;
+            bool ehDevedor = this.devedores.Contains(titular);
+            if (!ehDevedor)
+            {
+                Conta novaConta = new ContaCorrente();
+                novaConta.Titular = new Cliente(textoTitular.Text);
+                novaConta.Numero = Convert.ToInt32(textoNumero.Text);
+                //chama o metodo presente no Formulario 1
+                this.formPrincipal.AdicionaConta(novaConta);
+            }
+            else
+            {
+                MessageBox.Show("devedor");
+            }
 
-            //chama o metodo presente no Formulario 1
-            this.formPrincipal.AdicionaConta(novaConta);
+            
         }
     }
 }

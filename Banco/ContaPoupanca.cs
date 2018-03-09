@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Banco.Contas;
 
-namespace Banco
+namespace Banco.ContaPP
 {
     public class ContaPoupanca : Conta, ITributavel
     {
+        public class SaldoInsuficienteException : Exception
+        {
+        }
 
         public override void Saca(double valor)
         {
-            if (valor + 0.10 <= this.Saldo)
+            if (valor < 0.0)
+            {
+                throw new ArgumentException();
+            }
+            if (valor + 0.10 > this.Saldo)
+            {
+                throw new SaldoInsuficienteException();
+            }
+            else
             {
                 this.Saldo -= valor + 0.10;
             }
@@ -19,7 +31,14 @@ namespace Banco
 
         public override void Deposita(double valor)
         {
-            this.Saldo += (valor - 0.10);
+            if (valor < 0.0)
+            {
+                throw new ArgumentException();
+            }
+            else
+            {
+                this.Saldo += (valor - 0.10);
+            }
         }
 
         public double CalculaTributo()
